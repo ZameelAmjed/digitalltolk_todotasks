@@ -12,7 +12,7 @@ function state(): DatastoreStateInterface {
     prop: false,
     todos: [],
     completedTodos: [],
-    editTodo: { id: 0, content: '', date: '' },
+    editTodo: { id: 0, content: '', description: '', date: '' },
   };
 }
 

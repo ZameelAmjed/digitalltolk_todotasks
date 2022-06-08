@@ -9,8 +9,13 @@ if (typeof localStorage === "undefined" || localStorage === null) {
  * fill it with dummy if all empty
  */
 function getDummyTodos(userId) {
-  const str = localStorage.getItem(userFilename('todos', userId));
-  return str;
+  try {
+    const str = localStorage.getItem(userFilename('todos', userId));
+    return str;
+  } catch (e) {
+    return '';
+  }
+
 }
 
 function setDummyTodo(userId) {
@@ -18,27 +23,31 @@ function setDummyTodo(userId) {
     {
       id: 1,
       content: 'Submit My Resume',
+      description: 'submit soon',
       date: '2022-03-23 23:30:00'
     },
     {
       id: 2,
       content: 'Complete the Task',
+      description: 'work on it fast',
       date: '2022-03-23 23:30:00'
     },
     {
       id: 3,
       content: 'Buy a chocolate to Mom',
+      description: 'Kandos chocolate',
       date: '2022-03-23 23:30:00'
     },
     {
       id: 4,
       content: 'Facetime with Dad',
+      description: 'Ok face time',
       date: '2021-03-23 23:30:00'
     }];
   let newTodos = [];
   for (let i in todos) {
     const newId = incrementTodoId();
-    newTodos.push({ id: newId, content: todos[i].content, date: todos[i].date })
+    newTodos.push({ id: newId, content: todos[i].content, description: todos[i].description, date: todos[i].date })
   }
   try {
     const oldTodos = localStorage.getItem(userFilename('todos', userId));
@@ -95,7 +104,7 @@ function addTodos(userId, addTodos) {
     let newTodos = [];
     newTodos = todos;
     const newId = incrementTodoId();
-    newTodos.push({ id: newId, content: addTodos.summery, date: addTodos.time })
+    newTodos.push({ id: newId, content: addTodos.summery, description: addTodos.description, date: addTodos.time })
     localStorage.setItem(userFilename('todos', userId), JSON.stringify(newTodos));
     return newId;
   }
@@ -115,7 +124,8 @@ function updateTodos(userId, editedTodo) {
     for (i in todos) {
       if (todos[i].id === editedTodo.id) {
         todos[i].content = editedTodo.summery;
-        todos[i].date = editedTodo.duedate;
+        todos[i].description = editedTodo.description;
+        todos[i].date = editedTodo.date;
       }
     }
     localStorage.setItem(userFilename('todos', userId), JSON.stringify(todos));
@@ -158,8 +168,13 @@ function setComplete(id, userId) {
 
 //get completed tasks list
 function getComplete(userId) {
-  const str = localStorage.getItem(userFilename('ctodos', userId));
-  return str;
+  try {
+    const str = localStorage.getItem(userFilename('ctodos', userId));
+    return str;
+  } catch (e) {
+    return '';
+  }
+
 }
 
 function resultSuccess(result, { message = 'ok' } = {}) {

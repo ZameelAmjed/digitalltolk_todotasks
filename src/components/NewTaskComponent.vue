@@ -14,13 +14,13 @@
                         <q-icon size="xs" name="segment" />
                     </template>
                 </q-input>
-                <q-input v-model="form.duedate" mask="datetime" label="Time">
+                <q-input v-model="form.date" mask="datetime" label="Time">
                     <template v-slot:prepend>
                         <q-icon size="xs" name="schedule" />
                     </template>
                 </q-input>
             </q-card-section>
-            {{ $store.getters['datastore/editTodo'] }}
+
             <q-card-actions class="q-px-lg">
                 <q-btn unelevated rounded no-caps size="md" color="dark" class="full-width q-my-sm"
                     :label="$t('main.save')" @click="submit()" />
@@ -47,7 +47,7 @@ export default defineComponent({
             form: {
                 summery: '',
                 description: '',
-                duedate: '',
+                date: '',
             },
             editId: 0
         }
@@ -68,13 +68,13 @@ export default defineComponent({
             //:TODO `validate client side form
             //:TODO `add more constraints on date type
 
-            const str: string = this.form.duedate as string;
+            const str: string = this.form.date as string;
             str.replace(/\\/g, '-')
 
             if (this.editId === 0) {
-                await this.$store.dispatch('datastore/saveNewTodo', { summery: this.form.summery, duedate: new Date(str) });
+                await this.$store.dispatch('datastore/saveNewTodo', { summery: this.form.summery, description: this.form.description, date: new Date(str) });
             } else {
-                await this.$store.dispatch('datastore/saveEditedTodo', { id: this.editId, summery: this.form.summery, duedate: new Date(str) });
+                await this.$store.dispatch('datastore/saveEditedTodo', { id: this.editId, summery: this.form.summery, description: this.form.description, date: new Date(str) });
             }
 
             this.clearForm();
@@ -84,15 +84,15 @@ export default defineComponent({
             const editData = this.$store.getters['datastore/editTodo'];
             if (editData.id !== 0) {
                 this.form.summery = editData.content;
-                this.form.description = '';
-                this.form.duedate = editData.date;
+                this.form.description = editData.description;
+                this.form.date = editData.date;
                 this.editId = editData.id;
             }
         },
         clearForm() {
             this.form.summery = '';
             this.form.description = '';
-            this.form.duedate = '';
+            this.form.date = '';
         }
     },
     setup() {

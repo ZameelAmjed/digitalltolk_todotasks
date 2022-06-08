@@ -4,7 +4,11 @@ import { DatastoreStateInterface } from './state';
 const mutation: MutationTree<DatastoreStateInterface> = {
   setTodos(state, payload) {
     if (typeof payload == 'string') {
-      state.todos = JSON.parse(payload) || {};
+      try {
+        state.todos = JSON.parse(payload) || {};
+      } catch (e) {
+        state.todos = {};
+      }
     } else {
       state.todos = payload;
     }
@@ -24,7 +28,8 @@ const mutation: MutationTree<DatastoreStateInterface> = {
   },
 
   setEditTodo(state, payload) {
-    if (payload === null) payload = { id: 0, content: '', date: '' };
+    if (payload === null)
+      payload = { id: 0, content: '', description: '', date: '' };
     state.editTodo = payload;
   },
 
@@ -32,7 +37,8 @@ const mutation: MutationTree<DatastoreStateInterface> = {
     for (const i in state.todos) {
       if (state.todos[i].id == payload.id) {
         state.todos[i].content = payload.summery;
-        state.todos[i].date = payload.duedate;
+        state.todos[i].description = payload.description;
+        state.todos[i].date = payload.date;
       }
     }
   },

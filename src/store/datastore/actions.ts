@@ -57,7 +57,8 @@ const actions: ActionTree<DatastoreStateInterface, StateInterface> = {
       newList.push({
         id: newId,
         content: payload.summery,
-        date: payload.duedate,
+        description: payload.description,
+        date: payload.date,
       });
       commit('setTodos', newList);
     });

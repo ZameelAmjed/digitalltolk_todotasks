@@ -154,7 +154,7 @@ module.exports = [
     response: (request) => {
       //localStorage.setItem('request_data.json',JSON.stringify(request));
 
-      const { duedate, summery } = request.body;
+      const { description, date, summery } = request.body;
       const token = getRequestToken(request)
       if (!token) return resultError('Invalid token')
       const checkUser = createFakeUserList().find((item) => item.token === token)
@@ -162,7 +162,7 @@ module.exports = [
         return resultError('Invalid token!')
       }
       //localStorage.setItem('request_data.json',JSON.stringify(request));
-      const newId = addTodos(checkUser.userId, { summery: summery, time: duedate })
+      const newId = addTodos(checkUser.userId, { summery: summery, description: description, date: date })
       return resultSuccess(newId, {
         message: 'added successfully'
       })
