@@ -1,8 +1,8 @@
 {
-  "name": "digitaltalk",
+  "name": "digitaltolk",
   "version": "0.0.1",
   "description": "a test project",
-  "productName": "digitaltalk app",
+  "productName": "digitaltolk app",
   "author": "Zameel Amjed <zameelamjed@yahoo.com>",
   "private": true,
   "scripts": {

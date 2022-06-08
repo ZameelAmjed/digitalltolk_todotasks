@@ -3,15 +3,15 @@ import { StateInterface } from '../index';
 import { DatastoreStateInterface } from './state';
 
 const getters: GetterTree<DatastoreStateInterface, StateInterface> = {
-  todos (state) {
-    return state.todos
+  todos(state) {
+    return state.todos;
   },
-  completedTodos (state) {
-    return state.completedTodos
+  completedTodos(state) {
+    return state.completedTodos;
   },
-  editTodo(state){
+  editTodo(state) {
     return state.editTodo;
-  }
+  },
 };
 
 export default getters;

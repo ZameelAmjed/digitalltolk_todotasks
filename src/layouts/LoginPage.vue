@@ -1,5 +1,4 @@
 <template>
-
     <q-layout view="lHh Lpr fff">
         <q-page class="window-height window-width row justify-center items-center">
             <div class="column q-pa-lg">
@@ -55,9 +54,6 @@ import { Platform } from 'quasar'
 
 export default defineComponent({
     name: 'LoginPage',
-    // components: {
-
-    // },
     data() {
         return {
             form: {
@@ -100,7 +96,7 @@ export default defineComponent({
                     console.log(data);
                     this.$router.push('/');
                 }).catch(error => {
-                    //caught feild error
+                    //caught feild error from server
                     const errors = error.response.data.errors;
                     for (const i in errors) {
                         this.errors[i] = errors[i][0];

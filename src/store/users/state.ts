@@ -1,4 +1,3 @@
-
 export interface UsersStateInterface {
   isAuthenticated: boolean;
   user: UserInterface;
@@ -7,16 +6,16 @@ export interface UsersStateInterface {
 }
 
 export interface UserInterface {
-  name:string,
+  name: string;
 }
 
 function state(): UsersStateInterface {
   return {
     isAuthenticated: false,
-    user: { name:'' },
+    user: { name: '' },
     userId: '',
-    token:'',
-  }
+    token: '',
+  };
 }
 
 export default state;

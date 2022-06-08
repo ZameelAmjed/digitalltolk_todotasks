@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lFf" class="horizontal-menu bg-gray">
     <q-header class="bg-transparent text-black">
       <q-toolbar>
-        <!-- :todo this is button for menu<q-btn flat round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" /> -->
+        <!-- this is button for toggling menu <q-btn flat round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" /> -->
       </q-toolbar>
     </q-header>
 
@@ -11,6 +11,7 @@
       <q-list>
         <EssentialLink v-for="link in essentialLinks" :key="link.title" v-bind="link" />
       </q-list>
+
       <!-- Logout Button -->
       <div class="toolbar fixed-bottom">
         <q-list>
@@ -25,7 +26,6 @@
             </q-item-section>
           </q-item>
         </q-list>
-
       </div>
 
     </q-drawer>

@@ -3,6 +3,7 @@
     <h6 class="text-btn-title">{{ title }}</h6>
     <!-- Active Todos -->
     <q-list v-if="active == true">
+
       <q-slide-item left-class="q-pl-none q-pr-none" right-color="grey-11" left-color="grey-11" @left="itemSlide"
         @right="itemSlide" v-for="todo in todos" :key="todo.id" tag="label">
         <template v-slot:left>
@@ -20,6 +21,7 @@
           <q-item-section>
             <q-item-label>{{ todo.content }}</q-item-label>
             <q-item-label caption>
+              <!-- :TODO Get alarm icon form a SVG icon -->
               <span>⏰</span>{{ dateFormat(todo.date) }}
             </q-item-label>
           </q-item-section>
@@ -27,6 +29,7 @@
 
       </q-slide-item>
     </q-list>
+
     <!-- Inactive Todos -->
     <q-list v-if="active == false">
       <q-item disable v-for="todo in todos" :key="todo.id" tag="label">

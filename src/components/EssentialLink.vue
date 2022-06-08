@@ -51,20 +51,3 @@ export default defineComponent({
   }
 });
 </script>
-<style lang="scss">
-.sidebar-links {
-  border-radius: 0px 25px 25px 0px;
-  font-size: medium;
-  font-weight: 600;
-
-  &:hover {
-    color: $white;
-    background-color: $dark;
-  }
-}
-
-.sidebar-links.active {
-  color: $white;
-  background-color: $dark;
-}
-</style>

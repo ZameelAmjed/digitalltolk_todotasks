@@ -1,12 +1,13 @@
 <template>
   <q-page class="">
     <div class="row">
-      <q-btn @click="toggleTaskModal" push flat color="gray" padding="xs" class="btn--no-hover btn-textual" noCaps>+ Add
-        new task
+      <q-btn @click="toggleTaskModal" push flat color="gray" padding="xs" class="btn--no-hover btn-textual" noCaps>
+        {{ $t('main.newtask') }}
       </q-btn>
     </div>
-    <task-component @update:listernModal="toggleTaskModal" title="Incomplete" active :todos="todos"></task-component>
-    <task-component title="Complete" :active="false" :todos="completedTodos"></task-component>
+    <task-component @update:listernModal="toggleTaskModal" :title="$t('main.incomplete')" active :todos="todos">
+    </task-component>
+    <task-component :title="$t('main.complete')" :active="false" :todos="completedTodos"></task-component>
     <new-task-component @update:listernModal="toggleTaskModal" :showTaskModal="showTaskModal"></new-task-component>
   </q-page>
 </template>
@@ -20,7 +21,6 @@ import NewTaskComponent from 'components/NewTaskComponent.vue';
 export default defineComponent({
   name: 'TasksPage',
   components: { TaskComponent, NewTaskComponent },
-
   data() {
     return {
       showTaskModal: false
@@ -36,7 +36,6 @@ export default defineComponent({
 
     return {
       $store,
-
     };
   },
   async mounted() {

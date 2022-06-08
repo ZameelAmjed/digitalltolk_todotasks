@@ -1,34 +1,50 @@
 // app global css in SCSS form
-.toolbar{
-    font-size: medium;
+.toolbar {
+  font-size: medium;
   font-weight: 600;
 }
-.horizontal-menu{
-    background-color: transperent;
+.horizontal-menu {
+  background-color: transperent;
 }
-.q-drawer--left.q-drawer--bordered{
-    border-right: none;
+.q-drawer--left.q-drawer--bordered {
+  border-right: none;
 }
-h6.text-btn-title{
-    font-size: 14px;
-    font-weight: 500;
-    padding: 0px;
-    margin: 0px;
-}
-
-.btn-textual{
-    padding: 0px !important;
-    margin: 0px;
+h6.text-btn-title {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0px;
+  margin: 0px;
 }
 
-.max-drawer-size{
-    max-width: 250px;
+.btn-textual {
+  padding: 0px !important;
+  margin: 0px;
 }
 
-.q-slide-item__left{
-    padding-left:0px !important;
+.max-drawer-size {
+  max-width: 250px;
 }
 
-.q-slide-item__right{
-    padding-right:0px !important;
+.q-slide-item__left {
+  padding-left: 0px !important;
+}
+
+.q-slide-item__right {
+  padding-right: 0px !important;
+}
+
+.sidebar-links {
+  border-radius: 0px 25px 25px 0px;
+  font-size: medium;
+  font-weight: 600;
+
+  &:hover {
+    color: $white;
+    background-color: $dark;
+  }
+}
+
+.sidebar-links.active {
+  color: $white;
+  background-color: $dark;
 }

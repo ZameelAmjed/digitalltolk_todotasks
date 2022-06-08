@@ -10,7 +10,7 @@ const usersModule: Module<UsersStateInterface, StateInterface> = {
   actions,
   getters,
   mutations,
-  state
+  state,
 };
 
 export default usersModule;
