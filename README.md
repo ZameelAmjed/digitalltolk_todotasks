@@ -1,6 +1,6 @@
 # digitaltalk app (digitaltalk)
 
-a test project
+a test project for digitaltolk
 
 ## Install the dependencies
 ```bash
