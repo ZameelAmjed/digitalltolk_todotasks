@@ -1,6 +1,10 @@
-# digitaltalk app (digitaltalk)
+# todo app (digitaltolk)
 
 a test project for digitaltolk
+
+## Database
+
+Database is made of single json files for users and runs on mock JS server. Files are saved in scratch folder.
 
 ## Install the dependencies
 ```bash
