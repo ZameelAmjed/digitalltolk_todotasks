@@ -62,7 +62,7 @@ export default defineComponent({
     emits: ['update:listernModal'],
     methods: {
         handleClose() {
-            this.$emit("update:listernModal", false);
+            this.$emit('update:listernModal', false);
         },
         async submit() {
             //:TODO `validate client side form

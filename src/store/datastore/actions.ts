@@ -77,8 +77,8 @@ const actions: ActionTree<DatastoreStateInterface, StateInterface> = {
     }
   },
 
-  async saveEditedTodo({ commit, state }, payload) {
-    return api.put('/tasks/', payload).then((response) => {
+  async saveEditedTodo({ commit }, payload) {
+    return api.put('/tasks/', payload).then(() => {
       commit('updateEditedTodo', payload);
       //clear edit todo
       commit('setEditTodo', null);

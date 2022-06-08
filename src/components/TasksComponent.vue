@@ -54,15 +54,15 @@ import {
 import { mapActions, useStore } from 'vuex';
 import { Todo } from './models';
 
-function dateFormat(date: any) {
+function dateFormat(date: string) {
   //:TODO format date as per the UI
   const datetime = Date.parse(date);
   let formateddate = new Date(datetime);
   if (isToday(formateddate))
-    return "Today";
+    return 'Today';
 
   if (isTommorow(formateddate))
-    return "Tommorow";
+    return 'Tommorow';
 
   return formateddate.toLocaleString('en-US')
 }
@@ -133,7 +133,7 @@ export default defineComponent({
     editTodo(id: number) {
       this.$store.dispatch('datastore/setEditVal', id);
       //display modal
-      this.$emit("update:listernModal", true);
+      this.$emit('update:listernModal', true);
 
     }
   }
