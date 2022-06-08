@@ -4,7 +4,7 @@ a test project for digitaltolk
 
 ## Database
 
-Database is made of single json files for users and runs on mock server. Files are saved in scratch folder.
+Database is made of single json files for users and runs on mock JS server. Files are saved in scratch folder.
 
 ## Install the dependencies
 ```bash
